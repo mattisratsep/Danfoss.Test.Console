@@ -16,18 +16,15 @@ void initLetterList(letterType letterList[])
 {
 	for (int index = 0; index < 26; index++)
 	{
-		//This segment sets the uppercase letters
 		letterList[index].letter = static_cast<char>(65 + index);
 		letterList[index].letterCount = 0;
 
-		//This segment sets the lowercase letters
 		letterList[index + 26].letter = static_cast<char>(97 + index);
 		letterList[index + 26].letterCount = 0;
-
 	}
 }
 
-void getAllLettersCount(std::string& path, letterType letterList[])
+void getAllLettersCount(std::string path, letterType letterList[])
 {
 	initLetterList(letterList);
 	std::fstream stream(path, std::fstream::in);
@@ -137,6 +134,11 @@ int main()
 		}
 		
 	}
+
+	std::cout << "Press ENTER to continue...";
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+	return 0;
 
 }
 
